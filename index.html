@@ -37,17 +37,6 @@
     box-shadow:0 10px 25px rgba(70,40,35,.2); transition:.25s;
   }
   button:hover{transform:translateY(-2px)}
-  .letter{
-    background:#fbf0df; padding:34px 26px; border-radius:8px;
-    box-shadow:0 15px 45px rgba(80,45,30,.16); transform:rotate(-.7deg);
-    max-width:540px; position:relative;
-  }
-  .letter:before{
-    content:""; position:absolute; inset:10px; border:1px solid rgba(110,70,55,.14);
-    pointer-events:none;
-  }
-  .letter p{font-size:21px}
-  .signature{margin-top:25px;font-size:19px}
   .heart{font-size:42px; animation:pulse 1.7s infinite}
   @keyframes pulse{50%{transform:scale(1.12)}}
   .final h2{font-size:clamp(28px,7vw,48px);font-weight:500;line-height:1.5}
@@ -62,9 +51,9 @@
 
 <section id="s1" class="screen">
   <div class="card">
-    <div class="tiny">رسالة صغيرة لشخص مش صغير</div>
-    <h1>تقي؟</h1>
-    <p>عندي حاجة صغيرة أقولها لك…</p>
+    <div class="tiny">رسالة صغيرة لواحدة تهمني اوي</div>
+    <h1>تقي</h1>
+    <p>عندي حاجة صغيرة أقولها لك…🤏</p>
     <div class="sub">بس مش هقولها كلها هنا.</div>
     <button onclick="next(1)">افتحي</button>
   </div>
@@ -81,22 +70,6 @@
 </section>
 
 <section id="s3" class="screen hidden">
-  <div class="letter">
-    <div class="tiny">إلى من يهمني أمرها</div>
-    <p>
-      يمكن الموقع ده كله ملوش لازمة…<br>
-      ويمكن كان أسهل أبعتلك رسالة عادية.
-    </p>
-    <p>
-      بس أنا حبيت أعمل حاجة<br>
-      <strong>تليق بيكي إنتِ.</strong>
-    </p>
-    <div class="signature">— يوسف</div>
-    <button onclick="next(3)">آخر حاجة…</button>
-  </div>
-</section>
-
-<section id="s4" class="screen hidden">
   <div class="card final">
     <div class="tiny">والحقيقة ببساطة…</div>
     <h2>أنا اخترتكِ.<br>والباقي لسه بنكتبه سوا.</h2>
@@ -106,18 +79,19 @@
 
 <div class="dots">
   <span class="dot on" id="d1"></span><span class="dot" id="d2"></span>
-  <span class="dot" id="d3"></span><span class="dot" id="d4"></span>
+  <span class="dot" id="d3"></span>
 </div>
 
 <script>
 let current=1;
+const total=3;
 function next(n){
   const old=document.getElementById("s"+n);
   const newer=document.getElementById("s"+(n+1));
   old.classList.add("hidden");
   newer.classList.remove("hidden");
   current=n+1;
-  for(let i=1;i<=4;i++) document.getElementById("d"+i).classList.toggle("on",i===current);
+  for(let i=1;i<=total;i++) document.getElementById("d"+i).classList.toggle("on",i===current);
 }
 </script>
 </body>
